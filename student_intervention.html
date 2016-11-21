@@ -12454,7 +12454,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import the three supervised learning models from sklearn</span>
@@ -12463,8 +12463,8 @@ Testing set has 95 samples.
 <span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
 
 <span class="c1"># TODO: Initialize the three models</span>
-<span class="n">clf_A</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
-<span class="n">clf_B</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<span class="n">clf_A</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">clf_B</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">clf_C</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
 
 <span class="c1"># TODO: Set up the training set sizes</span>
@@ -12504,63 +12504,73 @@ Testing set has 95 samples.
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a LogisticRegression using a training set size of 100. . .
 Trained model in 0.0020 seconds
-Made predictions in 0.0000 seconds.
+Made predictions in 0.0120 seconds.
 F1 score for training set: 0.8571.
-Made predictions in 0.0000 seconds.
-F1 score for test set: 0.7612.
-Training a LogisticRegression using a training set size of 200. . .
-Trained model in 0.0030 seconds
-Made predictions in 0.0080 seconds.
-F1 score for training set: 0.8380.
-Made predictions in 0.0030 seconds.
-F1 score for test set: 0.7794.
-Training a LogisticRegression using a training set size of 300. . .
-Trained model in 0.0060 seconds
-Made predictions in 0.0020 seconds.
-F1 score for training set: 0.8381.
 Made predictions in 0.0010 seconds.
-F1 score for test set: 0.7910.
-
-
-Training a DecisionTreeClassifier using a training set size of 100. . .
-Trained model in 0.0020 seconds
-Made predictions in 0.0000 seconds.
-F1 score for training set: 1.0000.
-Made predictions in 0.0000 seconds.
-F1 score for test set: 0.7119.
-Training a DecisionTreeClassifier using a training set size of 200. . .
-Trained model in 0.0020 seconds
-Made predictions in 0.0000 seconds.
-F1 score for training set: 1.0000.
-Made predictions in 0.0000 seconds.
-F1 score for test set: 0.7424.
-Training a DecisionTreeClassifier using a training set size of 300. . .
-Trained model in 0.0020 seconds
-Made predictions in 0.0010 seconds.
-F1 score for training set: 1.0000.
-Made predictions in 0.0000 seconds.
-F1 score for test set: 0.7200.
-
-
-Training a GaussianNB using a training set size of 100. . .
-Trained model in 0.0010 seconds
-Made predictions in 0.0000 seconds.
-F1 score for training set: 0.8550.
-Made predictions in 0.0010 seconds.
-F1 score for test set: 0.7481.
-Training a GaussianNB using a training set size of 200. . .
-Trained model in 0.0010 seconds
-Made predictions in 0.0000 seconds.
-F1 score for training set: 0.8321.
-Made predictions in 0.0000 seconds.
-F1 score for test set: 0.7132.
-Training a GaussianNB using a training set size of 300. . .
-Trained model in 0.0010 seconds
-Made predictions in 0.0000 seconds.
-F1 score for training set: 0.8088.
-Made predictions in 0.0010 seconds.
-F1 score for test set: 0.7500.
 </pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+
+<span class="ansi-red-fg">ValueError</span>Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-26-1681880ac25e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     22</span> <span class="ansi-red-intense-fg ansi-bold"># train_predict(clf, X_train, y_train, X_test, y_test)</span>
+<span class="ansi-green-intense-fg ansi-bold">     23</span> <span class="ansi-green-intense-fg ansi-bold">for</span> size <span class="ansi-green-intense-fg ansi-bold">in</span> <span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">100</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-cyan-intense-fg ansi-bold">200</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-cyan-intense-fg ansi-bold">300</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-fg">---&gt; 24</span><span class="ansi-red-fg">     </span>train_predict<span class="ansi-yellow-intense-fg ansi-bold">(</span>clf_A<span class="ansi-yellow-intense-fg ansi-bold">,</span> X_train<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>size<span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> y_train<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>size<span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> X_test<span class="ansi-yellow-intense-fg ansi-bold">,</span> y_train<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     25</span> <span class="ansi-green-intense-fg ansi-bold">print</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;\n&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     26</span> 
+
+<span class="ansi-green-fg">&lt;ipython-input-7-1a93bfeb0586&gt;</span> in <span class="ansi-cyan-fg">train_predict</span><span class="ansi-blue-fg">(clf, X_train, y_train, X_test, y_test)</span>
+<span class="ansi-green-intense-fg ansi-bold">     35</span>     <span class="ansi-red-intense-fg ansi-bold"># Print the results of prediction for both training and testing</span>
+<span class="ansi-green-intense-fg ansi-bold">     36</span>     <span class="ansi-green-intense-fg ansi-bold">print</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;F1 score for training set: {:.4f}.&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>format<span class="ansi-yellow-intense-fg ansi-bold">(</span>predict_labels<span class="ansi-yellow-intense-fg ansi-bold">(</span>clf<span class="ansi-yellow-intense-fg ansi-bold">,</span> X_train<span class="ansi-yellow-intense-fg ansi-bold">,</span> y_train<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">---&gt; 37</span><span class="ansi-red-fg">     </span><span class="ansi-green-intense-fg ansi-bold">print</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;F1 score for test set: {:.4f}.&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>format<span class="ansi-yellow-intense-fg ansi-bold">(</span>predict_labels<span class="ansi-yellow-intense-fg ansi-bold">(</span>clf<span class="ansi-yellow-intense-fg ansi-bold">,</span> X_test<span class="ansi-yellow-intense-fg ansi-bold">,</span> y_test<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-7-1a93bfeb0586&gt;</span> in <span class="ansi-cyan-fg">predict_labels</span><span class="ansi-blue-fg">(clf, features, target)</span>
+<span class="ansi-green-intense-fg ansi-bold">     21</span>     <span class="ansi-red-intense-fg ansi-bold"># Print and return results</span>
+<span class="ansi-green-intense-fg ansi-bold">     22</span>     <span class="ansi-green-intense-fg ansi-bold">print</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;Made predictions in {:.4f} seconds.&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>format<span class="ansi-yellow-intense-fg ansi-bold">(</span>end <span class="ansi-yellow-intense-fg ansi-bold">-</span> start<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">---&gt; 23</span><span class="ansi-red-fg">     </span><span class="ansi-green-intense-fg ansi-bold">return</span> f1_score<span class="ansi-yellow-intense-fg ansi-bold">(</span>target<span class="ansi-yellow-intense-fg ansi-bold">.</span>values<span class="ansi-yellow-intense-fg ansi-bold">,</span> y_pred<span class="ansi-yellow-intense-fg ansi-bold">,</span> pos_label<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#39;yes&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     24</span> 
+<span class="ansi-green-intense-fg ansi-bold">     25</span> 
+
+<span class="ansi-green-fg">C:\Users\andrewlee\AppData\Local\Continuum\Anaconda2\lib\site-packages\sklearn\metrics\classification.pyc</span> in <span class="ansi-cyan-fg">f1_score</span><span class="ansi-blue-fg">(y_true, y_pred, labels, pos_label, average, sample_weight)</span>
+<span class="ansi-green-intense-fg ansi-bold">    637</span>     return fbeta_score(y_true, y_pred, 1, labels=labels,
+<span class="ansi-green-intense-fg ansi-bold">    638</span>                        pos_label<span class="ansi-yellow-intense-fg ansi-bold">=</span>pos_label<span class="ansi-yellow-intense-fg ansi-bold">,</span> average<span class="ansi-yellow-intense-fg ansi-bold">=</span>average<span class="ansi-yellow-intense-fg ansi-bold">,</span>
+<span class="ansi-green-fg">--&gt; 639</span><span class="ansi-red-fg">                        sample_weight=sample_weight)
+</span><span class="ansi-green-intense-fg ansi-bold">    640</span> 
+<span class="ansi-green-intense-fg ansi-bold">    641</span> 
+
+<span class="ansi-green-fg">C:\Users\andrewlee\AppData\Local\Continuum\Anaconda2\lib\site-packages\sklearn\metrics\classification.pyc</span> in <span class="ansi-cyan-fg">fbeta_score</span><span class="ansi-blue-fg">(y_true, y_pred, beta, labels, pos_label, average, sample_weight)</span>
+<span class="ansi-green-intense-fg ansi-bold">    754</span>                                                  average<span class="ansi-yellow-intense-fg ansi-bold">=</span>average<span class="ansi-yellow-intense-fg ansi-bold">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    755</span>                                                  warn_for<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#39;f-score&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">,</span>
+<span class="ansi-green-fg">--&gt; 756</span><span class="ansi-red-fg">                                                  sample_weight=sample_weight)
+</span><span class="ansi-green-intense-fg ansi-bold">    757</span>     <span class="ansi-green-intense-fg ansi-bold">return</span> f
+<span class="ansi-green-intense-fg ansi-bold">    758</span> 
+
+<span class="ansi-green-fg">C:\Users\andrewlee\AppData\Local\Continuum\Anaconda2\lib\site-packages\sklearn\metrics\classification.pyc</span> in <span class="ansi-cyan-fg">precision_recall_fscore_support</span><span class="ansi-blue-fg">(y_true, y_pred, beta, labels, pos_label, average, warn_for, sample_weight)</span>
+<span class="ansi-green-intense-fg ansi-bold">    954</span>         <span class="ansi-green-intense-fg ansi-bold">raise</span> ValueError<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#34;beta should be &gt;0 in the F-beta score&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    955</span> 
+<span class="ansi-green-fg">--&gt; 956</span><span class="ansi-red-fg">     </span>y_type<span class="ansi-yellow-intense-fg ansi-bold">,</span> y_true<span class="ansi-yellow-intense-fg ansi-bold">,</span> y_pred <span class="ansi-yellow-intense-fg ansi-bold">=</span> _check_targets<span class="ansi-yellow-intense-fg ansi-bold">(</span>y_true<span class="ansi-yellow-intense-fg ansi-bold">,</span> y_pred<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    957</span>     present_labels <span class="ansi-yellow-intense-fg ansi-bold">=</span> unique_labels<span class="ansi-yellow-intense-fg ansi-bold">(</span>y_true<span class="ansi-yellow-intense-fg ansi-bold">,</span> y_pred<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    958</span> 
+
+<span class="ansi-green-fg">C:\Users\andrewlee\AppData\Local\Continuum\Anaconda2\lib\site-packages\sklearn\metrics\classification.pyc</span> in <span class="ansi-cyan-fg">_check_targets</span><span class="ansi-blue-fg">(y_true, y_pred)</span>
+<span class="ansi-green-intense-fg ansi-bold">     70</span>     y_pred <span class="ansi-yellow-intense-fg ansi-bold">:</span> array <span class="ansi-green-intense-fg ansi-bold">or</span> indicator matrix
+<span class="ansi-green-intense-fg ansi-bold">     71</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">---&gt; 72</span><span class="ansi-red-fg">     </span>check_consistent_length<span class="ansi-yellow-intense-fg ansi-bold">(</span>y_true<span class="ansi-yellow-intense-fg ansi-bold">,</span> y_pred<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     73</span>     type_true <span class="ansi-yellow-intense-fg ansi-bold">=</span> type_of_target<span class="ansi-yellow-intense-fg ansi-bold">(</span>y_true<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     74</span>     type_pred <span class="ansi-yellow-intense-fg ansi-bold">=</span> type_of_target<span class="ansi-yellow-intense-fg ansi-bold">(</span>y_pred<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-fg">C:\Users\andrewlee\AppData\Local\Continuum\Anaconda2\lib\site-packages\sklearn\utils\validation.pyc</span> in <span class="ansi-cyan-fg">check_consistent_length</span><span class="ansi-blue-fg">(*arrays)</span>
+<span class="ansi-green-intense-fg ansi-bold">    174</span>     <span class="ansi-green-intense-fg ansi-bold">if</span> len<span class="ansi-yellow-intense-fg ansi-bold">(</span>uniques<span class="ansi-yellow-intense-fg ansi-bold">)</span> <span class="ansi-yellow-intense-fg ansi-bold">&gt;</span> <span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    175</span>         raise ValueError(&#34;Found arrays with inconsistent numbers of samples: &#34;
+<span class="ansi-green-fg">--&gt; 176</span><span class="ansi-red-fg">                          &#34;%s&#34; % str(uniques))
+</span><span class="ansi-green-intense-fg ansi-bold">    177</span> 
+<span class="ansi-green-intense-fg ansi-bold">    178</span> 
+
+<span class="ansi-red-fg">ValueError</span>: Found arrays with inconsistent numbers of samples: [ 95 300]</pre>
 </div>
 </div>
 
@@ -12775,7 +12785,7 @@ F1 score for test set: 0.7500.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;GridSearchCV&#39; and &#39;make_scorer&#39;</span>
@@ -12788,13 +12798,13 @@ F1 score for test set: 0.7500.
               <span class="p">}</span>
 
 <span class="c1"># TODO: Initialize the classifier</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># TODO: Make an f1 scoring function using &#39;make_scorer&#39; </span>
-<span class="n">f1_scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">)</span>
+<span class="n">f1_scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">,</span> <span class="n">pos_label</span> <span class="o">=</span> <span class="s1">&#39;yes&#39;</span><span class="p">)</span>
 
 <span class="c1"># TODO: Perform grid search on the classifier using the f1_scorer as the scoring method</span>
-<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">)</span>
 
 <span class="c1"># TODO: Fit the grid search object to the training data and find the optimal parameters</span>
 <span class="n">grid_obj</span> <span class="o">=</span> <span class="n">grid_obj</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -12819,7 +12829,7 @@ F1 score for test set: 0.7500.
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Made predictions in 0.0000 seconds.
 Tuned model has a training F1 score of 0.8267.
-Made predictions in 0.0010 seconds.
+Made predictions in 0.0000 seconds.
 Tuned model has a testing F1 score of 0.7917.
 </pre>
 </div>
