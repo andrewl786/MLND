@@ -46,7 +46,7 @@ class LearningAgent(Agent):
 
         if testing is False:
             self.alpha = 0.01
-            #self.epsilon -= 0.01
+            #self.epsilon -= 0.05
             self.epsilon = math.exp(-self.alpha * self.counter)
             self.counter += 1
         else:
@@ -134,6 +134,8 @@ class LearningAgent(Agent):
 
         action = None
 
+        #acts = []
+
         if self.learning == False:
             action = random.choice(self.valid_actions)
         else:
@@ -144,18 +146,20 @@ class LearningAgent(Agent):
                 for act in self.valid_actions:
                 #    print"act = {}, self.Q[state][act] = {}".format(act, self.Q[state][act])
                     if self.Q[state][act] == self.get_maxQ(state):
+                        #acts.append(act)
+                        #action = random.choice(acts)
                         action = act
                 #for key, value in self.Q[state].iteritems
 
         # Checking decision making
-        print "left: ", self.Q[state]['left']
+        '''print "left: ", self.Q[state]['left']
         print "right: ", self.Q[state]['right']
         print "forward: ",  self.Q[state]['forward']
         print "None: ",  self.Q[state][None]
         print "-" * 15
         print "maxQ: ", self.get_maxQ(state)
         print "chosen action: ", action
-        print "-" * 15
+        print "-" * 15'''
 
         return action
 
@@ -172,11 +176,11 @@ class LearningAgent(Agent):
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
 
         if self.learning == True:
-            self.Q[state][action] = (1 - self.alpha) * self.Q[state][action] + self.alpha * (reward + self.get_maxQ(state))
+            self.Q[state][action] = (1 - self.alpha) * self.Q[state][action] + self.alpha * reward
 
         # Checking decision making
-        print "updated state,action to: ", self.Q[state][action]
-        print "-" * 15
+        #print "updated state,action to: ", self.Q[state][action]
+        #print "-" * 15
 
         return
 
@@ -229,13 +233,14 @@ def run():
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
     sim = Simulator(env, display=False, log_metrics=True, update_delay=0.0000000001, optimized=True)
-
+    #, optimized=True
     ##############
     # Run the simulator
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05
     #   n_test     - discrete number of testing trials to perform, default is 0
     sim.run(n_test=10, tolerance=0.001)
+    #, tolerance=0.001
 
 if __name__ == '__main__':
     run()
