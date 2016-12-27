@@ -146,9 +146,9 @@ class LearningAgent(Agent):
                 for act in self.valid_actions:
                 #    print"act = {}, self.Q[state][act] = {}".format(act, self.Q[state][act])
                     if self.Q[state][act] == self.get_maxQ(state):
-                        #acts.append(act)
-                        #action = random.choice(acts)
-                        action = act
+                        acts.append(act)
+                        action = random.choice(acts)
+                        #action = act
                 #for key, value in self.Q[state].iteritems
 
         # Checking decision making
