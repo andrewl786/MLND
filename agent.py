@@ -134,7 +134,7 @@ class LearningAgent(Agent):
 
         action = None
 
-        #acts = []
+        acts = []
 
         if self.learning == False:
             action = random.choice(self.valid_actions)
